@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100dvh;
+            gap: 30px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+        .calculator-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            width: 100%;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: clamp(2.5rem, 4vw, 3.2rem);
+            font-weight: 800;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff, #f8e8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 15px 10px;
+            vertical-align: middle;
+        }
+        label {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        input[type="number"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        button {
+            border-radius: 50px;
+            padding: 15px 30px;
+            border: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 150px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        button:active {
+            transform: translateY(-1px);
+        }
+        button.compute-btn {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        button.compute-btn:hover {
+            background: linear-gradient(135deg, #3498db, #5dade2);
+        }
+        button.tenorioClear {
+            background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        button.tenorioClear:hover {
+            background: linear-gradient(135deg, #95a5a6, #bdc3c7);
+        }
+        .result-row {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-card">
+        <h1>✖️ MULTIPLICATION</h1>
+        <form action="" method="">
+            <table>
+                <tr>
+                    <td><label for="tenorioFirstNum">First Number:</label></td>
+                    <td><input type="number" id="tenorioFirstNum" name="tenorioFirstNum" placeholder="Enter first number"></td>
+                </tr>
+                <tr>
+                    <td><label for="tenorioSecondNum">Second Number:</label></td>
+                    <td><input type="number" id="tenorioSecondNum" name="tenorioSecondNum" placeholder="Enter second number"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="button-group">
+                            <button class="compute-btn" type="submit" name="compute">COMPUTE</button>
+                            <button type="reset" name="clear" class="tenorioClear">CLEAR</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="result-row">
+                            <table>
+                                <tr>
+                                    <td><label for="tenorioProduct">The product of the two numbers is:</label></td>
+                                    <td><input type="number" id="tenorioProduct" name="tenorioProduct" readonly placeholder=""></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!--
+    <?php
+    if(isset($_POST['compute'])) {
+        $num1 = $_POST['tenorioFirstNum'];
+        $num2 = $_POST['tenorioSecondNum'];
+        $product = $num1 * $num2;
+        echo "<script>document.getElementById('tenorioProduct').value = '$product';</script>";
+    }
+    ?>-->
+</body>
+</html>
